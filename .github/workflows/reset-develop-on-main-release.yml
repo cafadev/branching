@@ -16,3 +16,4 @@ jobs:
         uses: nicksnell/action-reset-repo@master
         with:
           reset_branch: develop
+          base_branch: main
