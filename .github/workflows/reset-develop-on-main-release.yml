@@ -17,3 +17,4 @@ jobs:
         with:
           reset_branch: develop
           base_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
