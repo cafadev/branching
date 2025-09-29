@@ -1,0 +1,3 @@
+file C
+
+Another file

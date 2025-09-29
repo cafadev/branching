@@ -1,0 +1,18 @@
+name: Reset develop branch on main release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  reset:
+    name: Runner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Reset develop branch to main
+        uses: nicksnell/action-reset-repo@master
+        with:
+          reset_branch: develop

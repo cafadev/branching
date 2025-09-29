@@ -1,0 +1,25 @@
+flowchart LR
+  %% Nodos
+  hot(hot-fixes)
+  dev([develop])
+  stag([staging])
+  main([main])
+  features(features)
+  alpha([alpha])
+  beta([beta])
+  rc([release candidate])
+
+
+  %% Bugfix flow
+  hot -. squash & merge .-> dev -.cherry-pick.-> rc -.merge commit.-> stag -.fast-forward merge.-> main
+  main -.post-release reset.-> dev
+
+
+Notas informativas:
+- hot-fixes: se hacen a partir de main
+- Los hot-fixes se hacen merge a develop a traves de un PR, utilizando squash & merge
+- QA hace test de los hot-fixes en develop. Si pasan entonces se marcan como QA-approved.
+- La branch de rc (release candidate) se crea a partir de staging. Y se le agregan los commits que han sido marcados como QA-approved.
+- La branch de rc se mergea a staging a traves de un PR, utilizando rebase.
+- La branch de staging == main.
+
