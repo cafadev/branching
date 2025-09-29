@@ -24,3 +24,10 @@ jobs:
           # never post a comment.  (In all cases the information is
           # still available in the step's summary.)
           comment: always
+  
+      - name: Reset develop branch to main
+        uses: nicksnell/action-reset-repo@master
+        with:
+          reset_branch: develop
+          base_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
